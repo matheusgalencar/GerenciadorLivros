@@ -3,17 +3,21 @@ package com.books.books.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "TBL_BOOK")
-public class BookModel {
+@Table (name = "TB_LIVRO")
+public class LivroModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITYg)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
+
+    @Column(name = "escritor")
     private String autor;
+
+    @Column(name = "anoLancamento")
     private Integer anoPublicacao;
 
-    public BookModel() {
+    public LivroModel() {
     }
 
     public Long getId() {

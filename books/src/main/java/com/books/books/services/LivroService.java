@@ -1,4 +1,4 @@
 package com.books.books.services;
 
-public class BookService {
+public class LivroService {
 }
