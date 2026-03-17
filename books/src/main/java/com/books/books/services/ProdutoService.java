@@ -1,6 +1,7 @@
 package com.books.books.services;
 
 import com.books.books.models.ProdutoModel;
+import com.books.books.repositories.ProdutoRepository;
 import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,21 +13,24 @@ import java.util.Optional;
 public class ProdutoService {
 
     @Autowired
-    private ProdutoService produtoService;
+    private ProdutoRepository produtoRepository;
 
-    public List<ProdutoModel> findAll(){return produtoService.findAll();}
+    public List<ProdutoModel> findAll(){return produtoRepository.findAll();}
 
-    public ProdutoModel criarProduto(ProdutoModel produtoModel){return produtoService.save(produtoModel);}
+    public ProdutoModel criarProduto(ProdutoModel produtoModel){return produtoRepository.save(produtoModel);}
 
     public Optional<ProdutoModel> buscarId(Long id){
-        return produtoService.buscarId(id);
+        return produtoRepository.findById(id);
     }
 
     public ProdutoModel atualizar(Long id, ProdutoModel produtoModel){
-        ProdutoModel model = produtoService.buscarId(id).get();
+        ProdutoModel model = produtoRepository.findById(id).get();
         model.setNome(produtoModel.getNome());
 
-        return produtoService.save(model);
+        return produtoRepository.save(model);
     }
 
+    public void deletar(Long id){
+        produtoRepository.deleteById(id);
+    }
 }
