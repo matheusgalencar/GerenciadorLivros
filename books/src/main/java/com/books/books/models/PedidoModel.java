@@ -1,16 +1,13 @@
 package com.books.books.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@RequestMapping("/pedido")
+@Table(name = "tb_pedido")
 public class PedidoModel {
     @Id
     @GeneratedValue

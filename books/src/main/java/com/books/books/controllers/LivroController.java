@@ -13,12 +13,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/livro")
 public class LivroController {
 
     @Autowired
     private LivroService livroService;
-    @Autowired
-    private SpringApplicationAdminMXBeanRegistrar springApplicationAdminRegistrar;
 
     @GetMapping
     public ResponseEntity<List<LivroModel>> findAll(){

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/pedido")
 public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
